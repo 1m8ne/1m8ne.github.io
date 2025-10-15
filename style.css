@@ -1,29 +1,31 @@
 body {
+    background: #f8fafc;
     font-family: Arial, sans-serif;
-    background: #e0e7ef;
     margin: 0;
+    padding: 0;
 }
-
-.dashboard {
+.container {
     max-width: 400px;
-    margin: 50px auto;
-    padding: 2em;
+    margin: 100px auto;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    padding: 2em;
+    text-align: center;
 }
-
-input, button {
-    padding: 0.5em;
-    font-size: 1em;
-    margin-top: 1em;
-}
-
-button {
-    margin-left: 0.5em;
+.install-btn {
+    display: inline-block;
+    padding: 1em 2em;
+    background: #2563eb;
+    color: #fff;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 20px;
     cursor: pointer;
+    transition: background 0.2s;
 }
-
-#weatherResult {
-    margin-top: 2em;
+.install-btn:hover {
+    background: #1e40af;
 }
