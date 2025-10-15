@@ -32,6 +32,10 @@ body {
 .cert-list li:last-child {
     border-bottom: none;
 }
+.cert-btn-row {
+    display: flex;
+    gap: 10px;
+}
 .install-btn {
     display: inline-block;
     padding: 1em 2em;
@@ -41,7 +45,7 @@ body {
     border: none;
     border-radius: 6px;
     text-decoration: none;
-    margin-top: 20px;
+    margin-top: 0;
     cursor: pointer;
     transition: background 0.2s;
 }
