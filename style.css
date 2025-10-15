@@ -59,17 +59,23 @@ p {
 .cert-list li:hover {
     background: rgba(44, 51, 63, 0.14);
 }
+/* Center the button row horizontally */
 .cert-btn-row {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
+    width: 100%;
 }
 .install-btn {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 0.8em 1.7em;
-    background: rgba(36, 39, 46, 0.92);
+    background: rgba(36, 39, 46, 0.93);
     color: #eaf0fb;
     font-size: 1em;
     border: none;
@@ -83,38 +89,50 @@ p {
     font-family: inherit;
     font-weight: 600;
     letter-spacing: 0.015em;
-    position: relative;
     overflow: hidden;
     min-width: 120px;
+    z-index: 0;
 }
 
-/* Liquid glass effect ONLY AT THE EDGES */
+/* Liquid glass effect at the button edges */
 .install-btn.liquid-glass::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 26%;
-    border-radius: 999px 999px 0 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.04) 100%);
-    opacity: 0.78;
+    height: 100%;
+    border-radius: 999px;
     pointer-events: none;
     z-index: 1;
+    /* Top edge highlight */
+    box-shadow:
+        0 -2px 18px 2px rgba(255,255,255,0.38) inset,
+        0 2px 14px 2px rgba(255,255,255,0.10) inset,
+        0 0px 0px 0px transparent;
 }
 
 .install-btn.liquid-glass::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;
+    top: 0;
     width: 100%;
-    height: 22%;
-    border-radius: 0 0 999px 999px;
-    background: linear-gradient(to top, rgba(255,255,255,0.15) 55%, rgba(255,255,255,0.02) 100%);
-    opacity: 0.7;
+    height: 100%;
+    border-radius: 999px;
     pointer-events: none;
     z-index: 1;
+    /* Bottom edge highlight */
+    box-shadow:
+        0 4px 20px 3px rgba(255,255,255,0.19) inset,
+        0 -2px 16px 2px rgba(255,255,255,0.11) inset,
+        0 0px 0px 0px transparent;
+}
+
+/* Ensure text stays above pseudo-elements */
+.install-btn span, .install-btn {
+    position: relative;
+    z-index: 2;
 }
 
 .install-btn:hover,
@@ -148,9 +166,10 @@ p {
     }
     .cert-btn-row {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         gap: 10px;
         margin-top: 0.45em;
+        width: 100%;
     }
     .install-btn,
     .install-btn.small {
