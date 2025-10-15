@@ -92,19 +92,21 @@ p {
     z-index: 0;
 }
 .install-btn.liquid-glass {
-    border: 1.5px solid rgba(255,255,255,0.45);
+    border: 1.5px solid rgba(255,255,255,0.25);
 }
 .install-btn.liquid-glass::before {
-    /* thin white border that fades away */
+    /* White border with soft glow/fade */
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 999px;
     pointer-events: none;
     z-index: 1;
-    /* fade-out border using box-shadow */
-    box-shadow: 0 0 0 2.5px rgba(255,255,255,0.55), 0 0 12px 4px rgba(255,255,255,0.11);
-    opacity: 0.7;
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,0.36),
+        0 0 12px 6px rgba(255,255,255,0.13),
+        0 0 24px 10px rgba(255,255,255,0.10);
+    opacity: 0.8;
 }
 .install-btn span, .install-btn {
     position: relative;
