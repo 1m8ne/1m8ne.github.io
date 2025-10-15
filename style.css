@@ -8,7 +8,7 @@ body {
     max-width: 98vw;
     margin: 20px auto;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     padding: 1em;
     text-align: center;
@@ -40,16 +40,16 @@ h1, h2 {
 }
 .cert-btn-row {
     display: flex;
-    gap: 8px;
+    gap: 12px;
 }
 .install-btn {
     display: inline-block;
-    padding: 0.6em 1.2em;
+    padding: 0.6em 1.4em;
     background: #2563eb;
     color: #fff;
     font-size: 1em;
     border: none;
-    border-radius: 6px;
+    border-radius: 999px;
     text-decoration: none;
     margin-top: 0;
     cursor: pointer;
@@ -62,10 +62,13 @@ h1, h2 {
     background: #1e40af;
 }
 .install-btn.small {
-    padding: 0.5em 1em;
+    padding: 0.5em 1.1em;
     font-size: 0.95em;
     margin-top: 0;
     min-width: 85px;
+}
+.install-btn.circle {
+    border-radius: 999px;
 }
 .cert-list span {
     text-align: left;
