@@ -64,63 +64,70 @@ p {
     gap: 16px;
 }
 .install-btn {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 0.72em 1.4em;
-    background: #272c34;
+    padding: 0.8em 1.7em;
+    background: rgba(36, 39, 46, 0.92);
     color: #eaf0fb;
     font-size: 1em;
     border: none;
     border-radius: 999px;
     text-decoration: none;
     margin-top: 0;
-    box-shadow: 0 2px 12px rgba(36,44,56,0.17), 0 0.5px 0 rgba(255,255,255,0.14) inset;
+    box-shadow:
+        0 2px 12px rgba(36,44,56,0.18),
+        0 0.5px 0 rgba(255,255,255,0.12) inset,
+        0 1.5px 6px 0 rgba(255,255,255,0.04) inset;
     cursor: pointer;
     font-family: inherit;
     font-weight: 600;
     letter-spacing: 0.015em;
     position: relative;
     overflow: hidden;
+    min-width: 120px;
 }
-.install-btn:after {
+.install-btn.liquid-glass::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 8%;
+    top: 8%;
+    width: 80%;
+    height: 44%;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.23);
+    opacity: 0.85;
+    filter: blur(6px);
+    pointer-events: none;
+    z-index: 1;
+}
+.install-btn.liquid-glass::after {
     content: "";
     display: block;
     position: absolute;
     left: 16%;
-    top: 12%;
+    top: 70%;
     width: 68%;
-    height: 45%;
-    border-radius: 42px;
+    height: 14%;
+    border-radius: 999px;
     background: rgba(255,255,255,0.18);
-    filter: blur(3px);
+    opacity: 0.64;
+    filter: blur(7px);
     pointer-events: none;
-}
-.install-btn.liquid-glass:before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 10%;
-    top: 62%;
-    width: 80%;
-    height: 19%;
-    border-radius: 32px;
-    background: rgba(255,255,255,0.12);
-    filter: blur(4px);
-    pointer-events: none;
+    z-index: 1;
 }
 .install-btn:hover,
 .install-btn:active {
-    background: #262c33;
-    box-shadow: 0 4px 20px rgba(36,44,56,0.28);
+    background: rgba(44, 48, 54, 1);
+    box-shadow: 0 4px 24px rgba(36,44,56,0.28);
 }
 .install-btn.small {
-    padding: 0.52em 1em;
+    padding: 0.54em 1em;
     font-size: 0.97em;
     margin-top: 0;
-    min-width: 90px;
-}
-.install-btn.circle {
-    border-radius: 999px;
+    min-width: 95px;
 }
 .cert-list span {
     text-align: left;
