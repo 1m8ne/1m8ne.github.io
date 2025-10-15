@@ -59,6 +59,7 @@ p {
 .cert-list li:hover {
     background: rgba(44, 51, 63, 0.14);
 }
+/* Center the button row horizontally */
 .cert-btn-row {
     display: flex;
     flex-direction: row;
@@ -81,9 +82,7 @@ p {
     border-radius: 999px;
     text-decoration: none;
     margin-top: 0;
-    box-shadow:
-        0 2px 12px rgba(36,44,56,0.18),
-        0 0.5px 0 rgba(255,255,255,0.12) inset;
+    box-shadow: 0 2px 12px rgba(36,44,56,0.18);
     cursor: pointer;
     font-family: inherit;
     font-weight: 600;
@@ -92,48 +91,25 @@ p {
     min-width: 120px;
     z-index: 0;
 }
-
-/* Stronger, more layered glass reflection effect at the edges */
+.install-btn.liquid-glass {
+    border: 1.5px solid rgba(255,255,255,0.45);
+}
 .install-btn.liquid-glass::before {
+    /* thin white border that fades away */
     content: "";
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     border-radius: 999px;
     pointer-events: none;
     z-index: 1;
-    box-shadow:
-        0 -2px 18px 2px rgba(255,255,255,0.57) inset,   /* Strong top edge highlight */
-        0 -8px 32px 8px rgba(255,255,255,0.29) inset,   /* Secondary top edge glow */
-        0 4px 22px 6px rgba(255,255,255,0.21) inset,    /* Strong bottom edge highlight */
-        0 10px 38px 10px rgba(255,255,255,0.15) inset;  /* Deeper bottom glow */
+    /* fade-out border using box-shadow */
+    box-shadow: 0 0 0 2.5px rgba(255,255,255,0.55), 0 0 12px 4px rgba(255,255,255,0.11);
+    opacity: 0.7;
 }
-
-.install-btn.liquid-glass::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 999px;
-    pointer-events: none;
-    z-index: 2;
-    /* Subtle edge sparkle: simulate streaks/reflection */
-    background:
-        linear-gradient(to bottom, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.02) 40%, transparent 100%),
-        linear-gradient(to top, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 60%, transparent 100%);
-    mix-blend-mode: screen;
-}
-
-/* Ensure text stays above pseudo-elements */
 .install-btn span, .install-btn {
     position: relative;
-    z-index: 3;
+    z-index: 2;
 }
-
 .install-btn:hover,
 .install-btn:active {
     background: rgba(44, 48, 54, 1);
@@ -177,6 +153,8 @@ p {
         margin: 0.22em 0;
         font-size: 1em;
         justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     .cert-list span {
         margin-bottom: 0.39em;
