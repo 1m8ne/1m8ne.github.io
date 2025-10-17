@@ -1,106 +1,158 @@
 /* --- Base --- */
 html, body {
+    background: #16181c;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-    background: #f2f2f7;
-    color: #000;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- Container for all content --- */
+/* --- Main container (full-page scroll, centered content) --- */
 .container {
-    width: 100%;
-    max-width: 600px; /* like iPhone width */
-    margin: 20px auto;
-    padding: 0 16px;
+    width: 90%;               /* keep space on edges */
+    max-width: 1000px;        /* prevent extreme stretching on desktop */
+    margin: 40px auto;        /* vertical spacing */
+    background: rgba(30, 32, 34, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.32);
+    padding: 2em 2em;
+    text-align: center;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.07);
     box-sizing: border-box;
 }
 
-/* --- Section card --- */
-.container.glass {
-    background: #ffffff; /* iOS settings background */
-    border-radius: 14px;
-    overflow: hidden;
-    margin-bottom: 32px; /* spacing between sections */
-    box-shadow: none;
-    border: 1px solid #c6c6c8; /* subtle iOS border */
-}
-
-/* --- Section header --- */
+/* --- Headings & Text --- */
 h1, h2 {
+    color: #eaf0fb;
     font-weight: 600;
-    font-size: 17px;
-    margin: 16px;
-    color: #000;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.6em;
 }
-
-/* --- Paragraph text --- */
+h1 { font-size: 1.7em; }
+h2 { font-size: 1.3em; margin-top: 1.2em; margin-bottom: 0.5em; }
 p {
-    font-size: 13px;
-    margin: 0 16px 16px 16px;
-    color: #3c3c43;
-    line-height: 1.4;
+    color: #a8b2d1;
+    font-size: 1em;
+    margin: 0 0 1.3em;
 }
 
-/* --- List items (cells) --- */
+/* --- Certificate List --- */
 .cert-list ul {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 .cert-list li {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid #c6c6c8; /* separator */
-    background: #fff;
-    font-size: 17px;
-    color: #000;
+    padding: 0.8em 0;
+    border-bottom: 1px solid rgba(255,255,255,0.085);
+    transition: background 0.2s;
 }
-.cert-list li:last-child {
-    border-bottom: none;
-}
+.cert-list li:last-child { border-bottom: none; }
+.cert-list li:hover { background: rgba(44, 51, 63, 0.14); }
 
-/* --- Button / Control on the right --- */
+/* --- Buttons --- */
 .cert-btn-row {
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;       /* center horizontally */
     align-items: center;
-    gap: 8px;
+    gap: 16px;
+    width: 100%;
+    margin-top: 0.5em;
+    box-sizing: border-box;
 }
-
-/* --- Minimal iOS button --- */
 .install-btn {
-    padding: 6px 12px;
-    background: #007aff; /* iOS blue button */
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75em 1.5em;
+    background: rgba(36, 39, 46, 0.93);
+    color: #eaf0fb;
+    font-size: 1em;
     border: none;
-    border-radius: 6px;
-    font-size: 15px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(36,44,56,0.18);
     font-weight: 600;
-    cursor: pointer;
+    letter-spacing: 0.015em;
+    min-width: 120px;
+    max-width: 100%;             /* prevent overflow */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    word-break: break-word;       /* prevent long text leaking */
+}
+.install-btn.liquid-glass {
+    border: 1.5px solid rgba(255,255,255,0.25);
+}
+.install-btn.liquid-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 0;
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,0.36),
+        0 0 12px 6px rgba(255,255,255,0.13),
+        0 0 24px 10px rgba(255,255,255,0.10);
+    opacity: 0.8;
+}
+.install-btn:hover,
+.install-btn:active {
+    background: rgba(44, 48, 54, 1);
+    box-shadow: 0 4px 24px rgba(36,44,56,0.28);
 }
 .install-btn.small {
-    padding: 4px 10px;
-    font-size: 13px;
+    padding: 0.5em 1em;
+    font-size: 0.95em;
+    min-width: 95px;
+    max-width: 100%;
+}
+
+/* --- Certificate Text --- */
+.cert-list span {
+    text-align: left;
+    font-weight: 500;
+    flex: 1;
+    font-size: 1em;
+    color: #eaf0fb;
+    letter-spacing: 0.01em;
 }
 
 /* --- Responsive --- */
+@media (max-width: 800px) {
+    .container { width: 95%; padding: 1.5em; margin: 30px auto; }
+}
+
 @media (max-width: 600px) {
-    .container {
-        padding: 0 12px;
-    }
     .cert-list li {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 12px;
+        align-items: stretch;
+        padding: 0.8em 0;
     }
     .cert-btn-row {
+        flex-direction: column;
+        gap: 10px;
         width: 100%;
-        justify-content: flex-start;
-        margin-top: 6px;
+        margin-top: 0.5em;
+    }
+    .install-btn,
+    .install-btn.small {
+        width: 100%;
+        margin: 0.25em 0;
+        font-size: 1em;
+    }
+    .cert-list span {
+        margin-bottom: 0.4em;
+        font-size: 1em;
     }
 }
