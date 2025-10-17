@@ -1,4 +1,4 @@
-/* 100% ai i cant code */
+/* i cant code this is ai */
 /* --- Base --- */
 html, body {
     background: #16181c;
@@ -10,11 +10,11 @@ html, body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- Main containers --- */
+/* --- Main container (full-page scroll, centered content) --- */
 .container {
-    width: 90%;             /* leave some space on edges */
-    max-width: 1100px;
-    margin: 40px auto;      /* vertical spacing */
+    width: 90%;               /* keep space on edges */
+    max-width: 1000px;        /* prevent extreme stretching on desktop */
+    margin: 40px auto;        /* vertical spacing */
     background: rgba(30, 32, 34, 0.92);
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.32);
@@ -23,7 +23,7 @@ html, body {
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
     border: 1px solid rgba(255,255,255,0.07);
-    position: relative;     /* normal flow */
+    box-sizing: border-box;
 }
 
 /* --- Headings & Text --- */
@@ -65,15 +65,16 @@ p {
     flex-wrap: wrap;
     justify-content: center;       /* center horizontally */
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     width: 100%;
     margin-top: 0.5em;
+    box-sizing: border-box;
 }
 .install-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.8em 1.8em;
+    padding: 0.75em 1.5em;
     background: rgba(36, 39, 46, 0.93);
     color: #eaf0fb;
     font-size: 1em;
@@ -83,9 +84,12 @@ p {
     box-shadow: 0 2px 12px rgba(36,44,56,0.18);
     font-weight: 600;
     letter-spacing: 0.015em;
-    min-width: 130px;
+    min-width: 120px;
+    max-width: 100%;             /* prevent overflow */
+    box-sizing: border-box;
     position: relative;
     z-index: 1;
+    word-break: break-word;       /* prevent long text leaking */
 }
 .install-btn.liquid-glass {
     border: 1.5px solid rgba(255,255,255,0.25);
@@ -109,9 +113,10 @@ p {
     box-shadow: 0 4px 24px rgba(36,44,56,0.28);
 }
 .install-btn.small {
-    padding: 0.54em 1.2em;
+    padding: 0.5em 1em;
     font-size: 0.95em;
     min-width: 95px;
+    max-width: 100%;
 }
 
 /* --- Certificate Text --- */
