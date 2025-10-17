@@ -1,47 +1,50 @@
-/* its ai */
 /* --- Base --- */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Arial, sans-serif;
-    background: #16181c;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    background: #f2f2f7;
+    color: #000;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
 }
 
-/* --- Sections / Cards --- */
+/* --- Container for all content --- */
 .container {
-    width: 95%;
-    max-width: 1000px;
-    margin: 30px auto;
-    background: rgba(255,255,255,0.05); /* iOS frosted glass */
-    border-radius: 28px;
-    padding: 1em;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.08);
+    width: 100%;
+    max-width: 600px; /* like iPhone width */
+    margin: 20px auto;
+    padding: 0 16px;
     box-sizing: border-box;
 }
 
-/* --- Section Titles --- */
+/* --- Section card --- */
+.container.glass {
+    background: #ffffff; /* iOS settings background */
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 32px; /* spacing between sections */
+    box-shadow: none;
+    border: 1px solid #c6c6c8; /* subtle iOS border */
+}
+
+/* --- Section header --- */
 h1, h2 {
-    color: #eaf0fb;
     font-weight: 600;
-    margin: 0 0 10px 0;
+    font-size: 17px;
+    margin: 16px;
+    color: #000;
 }
-h1 { font-size: 1.75em; }
-h2 { font-size: 1.25em; margin-top: 1em; }
 
-/* --- Paragraphs --- */
+/* --- Paragraph text --- */
 p {
-    color: #a8b2d1;
-    font-size: 1em;
-    margin: 0 0 10px 0;
+    font-size: 13px;
+    margin: 0 16px 16px 16px;
+    color: #3c3c43;
+    line-height: 1.4;
 }
 
-/* --- List Items / Cells --- */
+/* --- List items (cells) --- */
 .cert-list ul {
     list-style: none;
     margin: 0;
@@ -49,73 +52,55 @@ p {
 }
 .cert-list li {
     display: flex;
-    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    transition: background 0.15s;
-    border-radius: 14px; /* rounded like iOS */
+    padding: 12px 16px;
+    border-bottom: 1px solid #c6c6c8; /* separator */
+    background: #fff;
+    font-size: 17px;
+    color: #000;
 }
 .cert-list li:last-child {
     border-bottom: none;
 }
-.cert-list li:hover {
-    background: rgba(255,255,255,0.05);
-}
 
-/* --- Text Left --- */
-.cert-list span {
-    flex: 1;
-    font-size: 1em;
-    color: #eaf0fb;
-    letter-spacing: 0.01em;
-    font-weight: 500;
-}
-
-/* --- Button Row / Right --- */
+/* --- Button / Control on the right --- */
 .cert-btn-row {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
+    gap: 8px;
 }
 
-/* --- Buttons / Pill Style --- */
+/* --- Minimal iOS button --- */
 .install-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 16px;
-    font-size: 0.95em;
-    color: #eaf0fb;
-    background: rgba(255,255,255,0.08);
-    border-radius: 16px;
+    padding: 6px 12px;
+    background: #007aff; /* iOS blue button */
+    color: #fff;
     border: none;
-    min-width: 90px;
-    max-width: 100%;
+    border-radius: 6px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-}
-.install-btn:hover {
-    background: rgba(255,255,255,0.12);
-    transform: translateY(-1px);
-}
-.install-btn.liquid-glass {
-    border: 1px solid rgba(255,255,255,0.2);
 }
 .install-btn.small {
-    padding: 5px 12px;
-    font-size: 0.9em;
+    padding: 4px 10px;
+    font-size: 13px;
 }
 
 /* --- Responsive --- */
 @media (max-width: 600px) {
-    .container { width: 95%; padding: 1em; margin: 20px auto; }
-    .cert-list li { flex-direction: column; align-items: flex-start; padding: 12px 12px; }
-    .cert-btn-row { justify-content: flex-start; width: 100%; margin-top: 6px; flex-wrap: wrap; }
-    .install-btn, .install-btn.small { width: auto; min-width: 80px; margin: 2px 0; }
+    .container {
+        padding: 0 12px;
+    }
+    .cert-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+    }
+    .cert-btn-row {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 6px;
+    }
 }
